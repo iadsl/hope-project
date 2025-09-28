@@ -1,0 +1,44 @@
+2025-09-23 10:28:06 WARNING GPU is not available. Check your Pytorch installation.
+2025-09-23 10:28:06 INFO >>>>>>> training start <<<<<<<
+2025-09-23 10:28:06 INFO Training iter0 save to: storage/results/MIMIC_III/Ada_MSHyper/Ada_MSHyper/72_3/2025_0923_1028/iter0
+2025-09-23 10:28:07 DEBUG getting train set of MIMIC_III in tsdm format
+2025-09-23 10:28:07 ERROR Please apply the preprocessing code found at https://github.com/edebrouwer/gru_ode_bayes/.
+Put the resulting file 'complete_tensor.csv' in /mnt/home/khaledm/.tsdm/rawdata/MIMIC_III_DeBrouwer2019.
+Traceback (most recent call last):
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 74, in <module>
+    main()
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 61, in main
+    exp.train()
+  File "/mnt/home/khaledm/PyOmniTS/exp/exp_main.py", line 230, in train
+    train_data, train_loader = self._get_data(flag='train')
+  File "/mnt/home/khaledm/PyOmniTS/exp/exp_main.py", line 43, in _get_data
+    data_set, data_loader = data_provider(self.configs, flag)
+  File "/mnt/home/khaledm/PyOmniTS/data/data_provider/data_factory.py", line 33, in data_provider
+    data_set: Dataset = Data(
+  File "/mnt/home/khaledm/PyOmniTS/data/data_provider/datasets/MIMIC_III.py", line 50, in __init__
+    self.preprocess()
+  File "/mnt/home/khaledm/PyOmniTS/data/data_provider/datasets/MIMIC_III.py", line 66, in preprocess
+    task = MIMIC_III_DeBrouwer2019(
+  File "/mnt/home/khaledm/PyOmniTS/data/dependencies/tsdm/tasks/mimic_iii_debrouwer2019.py", line 258, in __init__
+    self.IDs = self.dataset.reset_index()["UNIQUE_ID"].unique()
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "/mnt/home/khaledm/PyOmniTS/data/dependencies/tsdm/tasks/mimic_iii_debrouwer2019.py", line 263, in dataset
+    ts = MIMIC_III_Dataset()["timeseries"]
+  File "/mnt/home/khaledm/PyOmniTS/data/dependencies/tsdm/datasets/base.py", line 459, in __init__
+    super().__init__(initialize=initialize, reset=reset)
+  File "/mnt/home/khaledm/PyOmniTS/data/dependencies/tsdm/datasets/base.py", line 106, in __init__
+    self.load()
+  File "/mnt/home/khaledm/PyOmniTS/data/dependencies/tsdm/datasets/base.py", line 612, in load
+    self.clean(key=key, force=force)
+  File "/mnt/home/khaledm/PyOmniTS/data/dependencies/tsdm/datasets/base.py", line 537, in clean
+    self.download(key=key, force=force, validate=validate)
+  File "/mnt/home/khaledm/PyOmniTS/data/dependencies/tsdm/datasets/base.py", line 692, in download
+    self._download()
+  File "/mnt/home/khaledm/PyOmniTS/data/dependencies/tsdm/datasets/mimic_iii_debrouwer2019.py", line 128, in _download
+    raise RuntimeError(
+RuntimeError: Please apply the preprocessing code found at https://github.com/edebrouwer/gru_ode_bayes/.
+Put the resulting file 'complete_tensor.csv' in /mnt/home/khaledm/.tsdm/rawdata/MIMIC_III_DeBrouwer2019.
+Stack (most recent call last):
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 105, in <module>
+    logger.exception(f"{e}", stack_info=True)

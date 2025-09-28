@@ -1,0 +1,7 @@
+/var/spool/slurm/d/job73010/slurm_script: line 13: --gpus-per-node=1: command not found
+2025-09-25 19:03:46 WARNING GPU is not available. Check your Pytorch installation.
+2025-09-25 19:03:46 INFO >>>>>>> training start <<<<<<<
+2025-09-25 19:03:46 INFO Training iter0 save to: storage/results/MIMIC_III/Ada_MSHyper/Ada_MSHyper/24_1/2025_0925_1903/iter0
+2025-09-25 19:03:47 DEBUG getting train set of MIMIC_III in tsdm format
+/mnt/home/khaledm/PyOmniTS/scripts/Ada_MSHyper/MIMIC_III.sh: line 16: 2591888 Killed                  $launch_command /mnt/home/khaledm/PyOmniTS/main.py --is_training 1 --loss "MSE_Dual" --use_multi_gpu $use_multi_gpu --dataset_root_path $dataset_root_path --model_id $model_id --model_name $model_name --dataset_name $dataset_name --features M --seq_len $seq_len --pred_len $pred_len --enc_in 96 --dec_in 96 --c_out 96 --train_epochs 1 --patience 5 --val_interval 1 --itr 1 --batch_size 32 --learning_rate 0.001
+slurmstepd: error: Detected 1 oom_kill event in StepId=73010.batch. Some of the step tasks have been OOM Killed.

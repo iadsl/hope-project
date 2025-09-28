@@ -1,0 +1,31 @@
+2025-09-24 19:37:25 WARNING GPU is not available. Check your Pytorch installation.
+2025-09-24 19:37:25 INFO >>>>>>> training start <<<<<<<
+2025-09-24 19:37:25 INFO Training iter0 save to: storage/results/MIMIC_III/Ada_MSHyper/Ada_MSHyper/72_3/2025_0924_1937/iter0
+2025-09-24 19:37:25 ERROR unexpected indent (MIMIC_III.py, line 60)
+Traceback (most recent call last):
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 74, in <module>
+    main()
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 61, in main
+    exp.train()
+  File "/mnt/home/khaledm/PyOmniTS/exp/exp_main.py", line 251, in train
+    train_data, train_loader = self._get_data(flag='train')
+  File "/mnt/home/khaledm/PyOmniTS/exp/exp_main.py", line 43, in _get_data
+    data_set, data_loader = data_provider(self.configs, flag)
+  File "/mnt/home/khaledm/PyOmniTS/data/data_provider/data_factory.py", line 15, in data_provider
+    dataset_module = importlib.import_module(f"data.data_provider.datasets.{configs.dataset_name}")
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/mnt/home/khaledm/PyOmniTS/data/data_provider/datasets/MIMIC_III.py", line 60
+    preprocess without time alignment
+IndentationError: unexpected indent
+Stack (most recent call last):
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 105, in <module>
+    logger.exception(f"{e}", stack_info=True)

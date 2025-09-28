@@ -1,0 +1,54 @@
+/mnt/home/khaledm/PyOmniTS/scripts/Informer/MIMIC_III.sh: line 36: seq_len=72
+for pred_len in 3; do
+    python main.py     --is_training 1     --loss MSE     --use_multi_gpu 0     --dataset_root_path /mnt/projects/zhuangyo_project/hope_project_data/mimic/mimic-iii/physionet.org/files/mimiciii/1.4/processed/     --model_id Informer     --model_name Informer     --dataset_name MIMIC_III     --features M     --seq_len      --pred_len      --enc_in 96     --dec_in 96     --c_out 96     --train_epochs 300     --patience 10     --val_interval 1     --itr 5     --batch_size 32     --learning_rate 0.0001
+done: No such file or directory
+2025-09-25 03:38:23 WARNING GPU is not available. Check your Pytorch installation.
+2025-09-25 03:38:23 INFO >>>>>>> training start <<<<<<<
+2025-09-25 03:38:23 INFO Training iter0 save to: storage/results/MIMIC_III/Informer/Informer/24_1/2025_0925_0338/iter0
+2025-09-25 03:38:24 DEBUG getting train set of MIMIC_III in tsdm format
+2025-09-25 03:38:31 DEBUG self.configs.seq_len_max_irr=24
+2025-09-25 03:38:31 DEBUG self.configs.pred_len_max_irr=1
+2025-09-25 03:38:31 DEBUG getting val set of MIMIC_III in tsdm format
+2025-09-25 03:38:38 INFO Train stage 1/1 starts.
+Epochs:   0%|          | 0/1 [00:00<?, ?it/s]
+Training:   0%|          | 0/1075 [00:00<?, ?it/s][A2025-09-25 03:38:39 WARNING Maybe you are running datasets other than regular datasets. TimeFeatureEmbedding with fallback to general embedding, where only x_mark's first value in 3rd feature dimension will be used
+
+                                                  [AEpochs:   0%|          | 0/1 [00:01<?, ?it/s]
+2025-09-25 03:38:40 ERROR Given groups=1, weight of size [128, 2, 3], expected input[16, 96, 27] to have 2 channels, but got 96 channels instead
+Traceback (most recent call last):
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 74, in <module>
+    main()
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 61, in main
+    exp.train()
+  File "/mnt/home/khaledm/PyOmniTS/exp/exp_main.py", line 313, in train
+    outputs: dict[str, Tensor] = model_train(
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/home/khaledm/PyOmniTS/models/Informer.py", line 157, in forward
+    dec_out = self.dec_embedding(x_dec, x_mark_dec)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/home/khaledm/PyOmniTS/layers/Formers/Embed.py", line 237, in forward
+    x = self.value_embedding(x) + self.temporal_embedding(x_mark) + self.position_embedding(x)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/home/khaledm/PyOmniTS/layers/Formers/Embed.py", line 88, in forward
+    x = self.tokenConv(x.permute(0, 2, 1)).transpose(1, 2)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 371, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 355, in _conv_forward
+    return F.conv1d(
+RuntimeError: Given groups=1, weight of size [128, 2, 3], expected input[16, 96, 27] to have 2 channels, but got 96 channels instead
+Stack (most recent call last):
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 105, in <module>
+    logger.exception(f"{e}", stack_info=True)

@@ -1,0 +1,8 @@
+/var/spool/slurm/d/job72976/slurm_script: line 2: SBATCH: command not found
+Traceback (most recent call last):
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 7, in <module>
+    from exp.exp_main import Exp_Main
+  File "/mnt/home/khaledm/PyOmniTS/exp/exp_main.py", line 151
+    """Safely move nested batches/tensors to device (CPU or CUDA)."""
+       ^^^^^^
+SyntaxError: invalid syntax

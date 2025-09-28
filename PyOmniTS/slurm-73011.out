@@ -1,0 +1,30 @@
+/var/spool/slurm/d/job73011/slurm_script: line 13: --gpus-per-node=1: command not found
+2025-09-25 19:06:49 WARNING GPU is not available. Check your Pytorch installation.
+2025-09-25 19:06:49 INFO >>>>>>> training start <<<<<<<
+2025-09-25 19:06:49 INFO Training iter0 save to: storage/results/MIMIC_III/Ada_MSHyper/Ada_MSHyper/24_1/2025_0925_1906/iter0
+2025-09-25 19:06:50 DEBUG getting train set of MIMIC_III in tsdm format
+2025-09-25 19:06:57 DEBUG self.configs.seq_len_max_irr=24
+2025-09-25 19:06:57 DEBUG self.configs.pred_len_max_irr=1
+2025-09-25 19:06:57 DEBUG getting val set of MIMIC_III in tsdm format
+2025-09-25 19:07:05 ERROR No CUDA GPUs are available
+Traceback (most recent call last):
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 74, in <module>
+    main()
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 61, in main
+    exp.train()
+  File "/mnt/home/khaledm/PyOmniTS/exp/exp_main.py", line 276, in train
+    model_train = model_train.to(f"cuda:{self.configs.gpu_id}")
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1369, in to
+    return self._apply(convert)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 928, in _apply
+    module._apply(fn)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 955, in _apply
+    param_applied = fn(param)
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1355, in convert
+    return t.to(
+  File "/mnt/projects/zhuangyo_project/khaledm/new_conda_environment/new_environment/lib/python3.10/site-packages/torch/cuda/__init__.py", line 412, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+Stack (most recent call last):
+  File "/mnt/home/khaledm/PyOmniTS/main.py", line 105, in <module>
+    logger.exception(f"{e}", stack_info=True)
